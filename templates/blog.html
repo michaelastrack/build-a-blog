@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+  <a href = "/newpost">Submit a new Post </a>
+</div>
+
+{% if page > 1 %}
+<div>
+  <a href = "/blog"> View Most Recent Blog Entries </a>
+</div>
+{% endif %}
+
+<h1>Most Recent Entries:</h1>
+
+<hr>
+
+{% for entry in entries %}
+  <div class = "entry">
+    <div class = "entry-title">
+
+      <a href = "/blog/{{entry.key().id()}}">{{entry.title}} </a>
+
+    </div>
+    <pre class = "entry-body">{{entry.body}}</pre>
+  </div>
+{% endfor %}
+
+<hr>
+
+<div class = "error">{{error}} </div>
+
+{% if n %}
+<div>
+  <a href = "/blog?page={{page + 1}}">Next</a>
+</div>
+{% endif %}
+
+{% if p %}
+<div>
+  <a href = "/blog?page={{page - 1}}">Previous</a>
+</div>
+{% endif %}
+
+<hr>
+
+<div>
+  <form method = "get">
+    <label>
+      <div>Page:</div>
+      <input type = "text" name= "page" value="{{page}}">
+    </label>
+    <input type = "submit">
+  </form>
+</div>
+
+
+
+{% endblock %}

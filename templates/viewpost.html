@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+  <a href = "/blog"> Main Blog Page </a>
+</div>
+
+<div class = "entry">
+  <div class = "entry-title">{{title}}</div>
+  <pre class = "entry-body">{{body}}</pre>
+</div>
+
+
+{% endblock %}

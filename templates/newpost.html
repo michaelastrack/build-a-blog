@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+  <a href = "/blog"> View Most Recent Blog Entries </a>
+</div>
+
+<h2> New Post Submission </h2>
+<form method="post">
+  <label>
+    <div>title</div>
+    <input type = "text" name= "title" value="{{title}}">
+  </label>
+
+  <label>
+    <div>body</div>
+    <textarea name = "body" >{{body}}</textarea>
+  </label>
+
+  <div class = "error">{{error}} </div>
+
+  <input type = "submit">
+</form>
+
+{% endblock %}
